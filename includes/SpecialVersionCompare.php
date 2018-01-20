@@ -48,15 +48,16 @@ class SpecialVersionCompare extends SpecialPage {
 		$htmlForm->prepareForm()->displayForm( false );
 
 		if ( $url1 === '' && $url1 !== $url2 ) {
-			$url1 = $GLOBALS['wgServer'] .  $GLOBALS['wgScriptPath'] . '/api.php';
+			$url1 = $GLOBALS['wgServer'] . $GLOBALS['wgScriptPath'] . '/api.php';
 		} elseif ( $url2 === '' && $url1 !== $url2 ) {
-			$url2 = $GLOBALS['wgServer'] .  $GLOBALS['wgScriptPath'] . '/api.php';
+			$url2 = $GLOBALS['wgServer'] . $GLOBALS['wgScriptPath'] . '/api.php';
 		}
 
 		if ( $url1 !== '' && $url2 !== '' ) {
 			$info1 = $this->getVersionInfo( $url1 );
 			if ( is_null( $info1 ) ) {
-				$html = Html::openElement( 'p', [ 'class' => 'error' ] ) .
+				$html = Html::element( 'br' ) .
+					Html::openElement( 'p', [ 'class' => 'error' ] ) .
 					wfMessage( 'version-compare-url-error', $url1 )->text() .
 					Html::closeElement( 'p' );
 				$output->addHTML( $html );
@@ -65,7 +66,8 @@ class SpecialVersionCompare extends SpecialPage {
 
 			$info2 = $this->getVersionInfo( $url2 );
 			if ( is_null( $info2 ) ) {
-				$html = Html::openElement( 'p', [ 'class' => 'error' ] ) .
+				$html = Html::element( 'br' ) .
+					Html::openElement( 'p', [ 'class' => 'error' ] ) .
 					wfMessage( 'version-compare-url-error', $url2 )->text() .
 					Html::closeElement( 'p' );
 				$output->addHTML( $html );
@@ -81,7 +83,9 @@ class SpecialVersionCompare extends SpecialPage {
 		$json = [];
 		$query =
 			"?action=query&meta=siteinfo&siprop=general%7Cextensions%7Cskins&format=json";
-	$ret = @file_get_contents( $url . $query );
+		\MediaWiki\suppressWarnings();
+		$ret = file_get_contents( $url . $query );
+		\MediaWiki\restoreWarnings();
 		if ( $ret === false ) {
 			return null;
 		}
