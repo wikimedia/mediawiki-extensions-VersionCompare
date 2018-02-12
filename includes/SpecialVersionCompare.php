@@ -83,9 +83,9 @@ class SpecialVersionCompare extends SpecialPage {
 		$json = [];
 		$query =
 			"?action=query&meta=siteinfo&siprop=general%7Cextensions%7Cskins&format=json";
-		\MediaWiki\suppressWarnings();
+		\Wikimedia\suppressWarnings();
 		$ret = file_get_contents( $url . $query );
-		\MediaWiki\restoreWarnings();
+		\Wikimedia\restoreWarnings();
 		if ( $ret === false ) {
 			return null;
 		}
