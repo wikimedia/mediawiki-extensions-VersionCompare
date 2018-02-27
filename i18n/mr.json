@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Susheelkasab"
+		]
+	},
+	"versioncompare": "आवृत्तीची तुलना",
+	"version-compare-database-label": "डाटाबेस",
+	"version-compare-url-error": "$1 पासून माहिती घेताना त्रुटी आली आहे."
+}
