@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrumps"
+		]
+	},
+	"version-compare-database-label": "Baza danych",
+	"version-compare-diff-field-label": "Pokaż tylko różnice"
+}

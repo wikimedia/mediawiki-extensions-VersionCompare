@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Cindy Cicalese"
+			"Cindy Cicalese",
+			"Liuxinyu970226"
 		]
 	},
 	"versioncompare": "The name of the extension's entry in Special:SpecialPages",
 	"version-compare-desc": "{{desc|name=VersionCompare|url=https://www.mediawiki.org/wiki/Extension:VersionCompare}}",
-	"version-compare-database-label": "Field label",
+	"version-compare-database-label": "Field label\n{{Identical|Database}}",
 	"version-compare-url-error": "Error message",
 	"version-compare-url-field-label-1": "Field label",
 	"version-compare-url-field-help-1": "Field help",

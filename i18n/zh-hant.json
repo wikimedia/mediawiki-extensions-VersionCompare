@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Laundry Machine"
+		]
+	},
+	"versioncompare": "版本比較",
+	"version-compare-desc": "顯示兩個wiki之間的核心組件與擴充套件版本。",
+	"version-compare-database-label": "資料庫"
+}
