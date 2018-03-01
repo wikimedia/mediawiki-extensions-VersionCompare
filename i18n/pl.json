@@ -5,5 +5,6 @@
 		]
 	},
 	"version-compare-database-label": "Baza danych",
+	"version-compare-url-error": "Błąd pobierania danych z $1.",
 	"version-compare-diff-field-label": "Pokaż tylko różnice"
 }
