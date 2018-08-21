@@ -57,9 +57,9 @@ class SpecialVersionCompare extends SpecialPage {
 			$info1 = $this->getVersionInfo( $url1 );
 			if ( is_null( $info1 ) ) {
 				$html = Html::element( 'br' ) .
-					Html::openElement( 'p', [ 'class' => 'error' ] ) .
-					wfMessage( 'version-compare-url-error', $url1 )->text() .
-					Html::closeElement( 'p' );
+					Html::element( 'p', [ 'class' => 'error' ],
+						wfMessage( 'version-compare-url-error', $url1 )->text()
+					);
 				$output->addHTML( $html );
 				return;
 			}
@@ -67,9 +67,9 @@ class SpecialVersionCompare extends SpecialPage {
 			$info2 = $this->getVersionInfo( $url2 );
 			if ( is_null( $info2 ) ) {
 				$html = Html::element( 'br' ) .
-					Html::openElement( 'p', [ 'class' => 'error' ] ) .
-					wfMessage( 'version-compare-url-error', $url2 )->text() .
-					Html::closeElement( 'p' );
+					Html::element( 'p', [ 'class' => 'error' ],
+						wfMessage( 'version-compare-url-error', $url2 )->text()
+					);
 				$output->addHTML( $html );
 				return;
 			}
