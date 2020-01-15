@@ -55,7 +55,7 @@ class SpecialVersionCompare extends SpecialPage {
 
 		if ( $url1 !== '' && $url2 !== '' ) {
 			$info1 = $this->getVersionInfo( $url1 );
-			if ( is_null( $info1 ) ) {
+			if ( $info1 === null ) {
 				$html = Html::element( 'br' ) .
 					Html::element( 'p', [ 'class' => 'error' ],
 						wfMessage( 'version-compare-url-error', $url1 )->text()
@@ -65,7 +65,7 @@ class SpecialVersionCompare extends SpecialPage {
 			}
 
 			$info2 = $this->getVersionInfo( $url2 );
-			if ( is_null( $info2 ) ) {
+			if ( $info2 === null ) {
 				$html = Html::element( 'br' ) .
 					Html::element( 'p', [ 'class' => 'error' ],
 						wfMessage( 'version-compare-url-error', $url2 )->text()
@@ -90,7 +90,7 @@ class SpecialVersionCompare extends SpecialPage {
 			return null;
 		}
 		$json = json_decode( $ret );
-		if ( is_null( $json ) ) {
+		if ( $json === null ) {
 			return null;
 		}
 		return $this->getVersionArray( $json );
@@ -219,9 +219,9 @@ class SpecialVersionCompare extends SpecialPage {
 		$html = Html::openElement( 'tr' );
 		if ( $match ) {
 			$html .= Html::openElement( 'th', [ 'class' => 'version-compare-same' ] );
-		} elseif ( is_null( $info1 ) ) {
+		} elseif ( $info1 === null ) {
 			$html .= Html::openElement( 'th', [ 'class' => 'version-compare-wiki-2' ] );
-		} elseif ( is_null( $info2 ) ) {
+		} elseif ( $info2 === null ) {
 			$html .= Html::openElement( 'th', [ 'class' => 'version-compare-wiki-1' ] );
 		} else {
 			$html .=
@@ -236,7 +236,7 @@ class SpecialVersionCompare extends SpecialPage {
 		} else {
 			$html .= Html::openElement( 'td' );
 		}
-		if ( is_null( $info1 ) ) {
+		if ( $info1 === null ) {
 			$html .= Html::openElement( 'p' );
 			$html .= '&empty;';
 			$html .= Html::closeElement( 'p' );
@@ -252,7 +252,7 @@ class SpecialVersionCompare extends SpecialPage {
 		if ( !$match ) {
 			$html .= Html::closeElement( 'td' );
 			$html .= Html::openElement( 'td' );
-			if ( is_null( $info2 ) ) {
+			if ( $info2 === null ) {
 				$html .= Html::openElement( 'p' );
 				$html .= '&empty;';
 				$html .= Html::closeElement( 'p' );
