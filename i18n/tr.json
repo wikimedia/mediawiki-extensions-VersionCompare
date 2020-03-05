@@ -5,7 +5,7 @@
 		]
 	},
 	"versioncompare": "Sürüm Karşılaştır",
-	"version-compare-desc": "İki wiki arasında çekirdek bileşen ve uzatma versiyonlarının karşılaştırmasını göster",
+	"version-compare-desc": "İki vikiarasında çekirdek bileşen ve uzatma versiyonlarının karşılaştırmasını göster",
 	"version-compare-database-label": "Veritabanı",
 	"version-compare-url-error": "$1'den veri alınırken hata oluştu.",
 	"version-compare-url-field-help-1": "Karşılaştırılacak ilk wikinin API URL'si (api.php ile biten). Boş bırakılırsa geçerli wikiyi kullanır.",
