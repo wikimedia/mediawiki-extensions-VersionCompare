@@ -1,6 +1,6 @@
 {
 	"name": "VersionCompare",
-	"version": "1.0",
+	"version": "2.0",
 	"author": [
 		"[https://www.mediawiki.org/wiki/User:Cindy.cicalese Cindy Cicalese]"
 	],
@@ -9,7 +9,10 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "other",
 	"requires": {
-		"MediaWiki": ">= 1.34.0"
+		"MediaWiki": ">= 1.34.0",
+		"platform": {
+			"php": ">=7.4"
+		}
 	},
 	"AutoloadClasses": {
 		"SpecialVersionCompare": "includes/SpecialVersionCompare.php"

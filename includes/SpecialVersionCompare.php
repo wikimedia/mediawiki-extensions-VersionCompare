@@ -1,6 +1,12 @@
 <?php
 
-class SpecialVersionCompare extends SpecialPage {
+use Wikimedia\AtEase\AtEase;
+
+class SpecialVersionCompare extends IncludableSpecialPage {
+
+	private bool $hidediff;
+	private bool $hidematch;
+	private bool $ignoreversion;
 
 	public function __construct() {
 		parent::__construct( 'VersionCompare' );
@@ -9,7 +15,7 @@ class SpecialVersionCompare extends SpecialPage {
 	/**
 	 * @inheritDoc
 	 */
-	public function execute( $parser ) {
+	public function execute( $subPage ) {
 		$request = $this->getRequest();
 		$output = $this->getOutput();
 		$this->setHeaders();
@@ -17,35 +23,51 @@ class SpecialVersionCompare extends SpecialPage {
 
 		$url1 = trim( $request->getText( 'url1' ) );
 		$url2 = trim( $request->getText( 'url2' ) );
-		$diff = $request->getBool( 'diff' );
+		$this->hidediff = $request->getBool( 'hidediff' );
+		$this->hidematch = $request->getBool( 'hidematch' );
+		$this->ignoreversion = $request->getBool( 'ignoreversion' );
 
-		$formDescriptor = [
-			'urlfield1' => [
-				'label-message' => 'version-compare-url-field-label-1',
-				'help-message' => 'version-compare-url-field-help-1',
-				'class' => 'HTMLTextField',
-				'default' => $url1,
-				'name' => 'url1'
-			],
-			'urlfield2' => [
-				'label-message' => 'version-compare-url-field-label-2',
-				'help-message' => 'version-compare-url-field-help-2',
-				'class' => 'HTMLTextField',
-				'default' => $url2,
-				'name' => 'url2'
-			],
-			'difffield' => [
-				'label-message' => 'version-compare-diff-field-label',
-				'class' => 'HTMLCheckField',
-				'default' => false,
-				'name' => 'diff'
-			]
-		];
+		if ( !$this->including() ) {
+			$formDescriptor = [
+				'urlfield1' => [
+					'label-message' => 'version-compare-url-field-label-1',
+					'help-message' => 'version-compare-url-field-help-1',
+					'class' => 'HTMLTextField',
+					'default' => $url1,
+					'name' => 'url1'
+				],
+				'urlfield2' => [
+					'label-message' => 'version-compare-url-field-label-2',
+					'help-message' => 'version-compare-url-field-help-2',
+					'class' => 'HTMLTextField',
+					'default' => $url2,
+					'name' => 'url2'
+				],
+				'hidedifffield' => [
+					'label-message' => 'version-compare-hide-diff-field-label',
+					'class' => 'HTMLCheckField',
+					'default' => false,
+					'name' => 'hidediff'
+				],
+				'hidematchfield' => [
+					'label-message' => 'version-compare-hide-match-field-label',
+					'class' => 'HTMLCheckField',
+					'default' => false,
+					'name' => 'hidematch'
+				],
+				'ignoreversionfield' => [
+					'label-message' => 'version-compare-ignore-version-field-label',
+					'class' => 'HTMLCheckField',
+					'default' => false,
+					'name' => 'ignoreversion'
+				],
+			];
 
-		$htmlForm =
-			HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
-		$htmlForm->setMethod( 'get' );
-		$htmlForm->prepareForm()->displayForm( false );
+			$htmlForm =
+				HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
+			$htmlForm->setMethod( 'get' );
+			$htmlForm->prepareForm()->displayForm( false );
+		}
 
 		if ( $url1 === '' && $url1 !== $url2 ) {
 			$url1 = $GLOBALS['wgServer'] . $GLOBALS['wgScriptPath'] . '/api.php';
@@ -74,13 +96,12 @@ class SpecialVersionCompare extends SpecialPage {
 				return;
 			}
 
-			$html = $this->compareWikis( $info1, $info2, $diff );
+			$html = $this->compareWikis( $info1, $info2 );
 			$output->addHTML( $html );
 		}
 	}
 
-	private function getVersionInfo( $url ) {
-		$json = [];
+	private function getVersionInfo( $url ): ?array {
 		$query =
 			"?action=query&meta=siteinfo&siprop=general%7Cextensions%7Cskins&format=json";
 		AtEase::suppressWarnings();
@@ -96,7 +117,10 @@ class SpecialVersionCompare extends SpecialPage {
 		return $this->getVersionArray( $json );
 	}
 
-	private static $wikiProperties = [
+	/**
+	 * @var string[]
+	 */
+	private static array $wikiProperties = [
 		'logo',
 		'wikiid',
 		'servername',
@@ -108,14 +132,17 @@ class SpecialVersionCompare extends SpecialPage {
 		'dbversion'
 	];
 
-	private static $extensionProperties = [
+	/**
+	 * @var string[]
+	 */
+	private static array $extensionProperties = [
 		'version',
 		'vcs-system',
 		'vcs-version',
 		'vcs-date'
 	];
 
-	private function getVersionArray( $info ) {
+	private function getVersionArray( $info ): ?array {
 		if ( !property_exists( $info, 'query' ) ||
 			!property_exists( $info->query, 'general' ) ||
 			!property_exists( $info->query, 'extensions' ) ) {
@@ -135,17 +162,16 @@ class SpecialVersionCompare extends SpecialPage {
 			foreach ( self::$extensionProperties as $property ) {
 				if ( property_exists( $extension, $property ) ) {
 					$e[$property] = $extension->$property;
-				} else {
-					$e[$property] = '';
 				}
 			}
 			$extensions[$extension->name] = $e;
 		}
 		$ret['extensions'] = $extensions;
+		$ret['extension-count'] = count( $extensions );
 		return $ret;
 	}
 
-	private function compareWikis( $info1, $info2, $diff ) {
+	private function compareWikis( $info1, $info2 ): string {
 		$html = Html::openElement( 'table', [ 'class' => 'version-compare-table' ] );
 
 		$html .= Html::openElement( 'tr' );
@@ -173,14 +199,10 @@ class SpecialVersionCompare extends SpecialPage {
 		$html .= Html::closeElement( 'th' );
 		$html .= Html::closeElement( 'tr' );
 
-		$html .=
-			$this->formatRow( 'MediaWiki', $info1, $info2, [ 'generator', 'git-hash' ],
-			$diff );
-		$html .= $this->formatRow( 'PHP', $info1, $info2, [ 'phpversion', 'phpsapi' ],
-			$diff );
-		$html .=
-			$this->formatRow( wfMessage( 'version-compare-database-label' )->text(),
-			$info1, $info2, [ 'dbtype', 'dbversion' ], $diff );
+		$html .= $this->formatRow( 'MediaWiki', $info1, $info2, [ 'generator', 'git-hash' ], null );
+		$html .= $this->formatRow( 'PHP', $info1, $info2, [ 'phpversion', 'phpsapi' ], null );
+		$html .= $this->formatRow( wfMessage( 'version-compare-database-label' )->text(), $info1, $info2,
+			[ 'dbtype', 'dbversion' ], null );
 
 		$extensions = [];
 		foreach ( $info1['extensions'] as $key => $value ) {
@@ -191,47 +213,77 @@ class SpecialVersionCompare extends SpecialPage {
 		}
 		$extensions = array_unique( $extensions );
 		asort( $extensions );
+		$info1['unique-extension-count'] = 0;
+		$info2['unique-extension-count'] = 0;
 		foreach ( $extensions as $value ) {
-			if ( isset( $info1['extensions'][$value] ) ) {
-				$extension1 = $info1['extensions'][$value];
-			} else {
-				$extension1 = null;
+			$extension1 = $info1['extensions'][$value] ?? null;
+			if ( $extension1 === null ) {
+				$info2['unique-extension-count'] = $info2['unique-extension-count'] + 1;
 			}
-			if ( isset( $info2['extensions'][$value] ) ) {
-				$extension2 = $info2['extensions'][$value];
-			} else {
-				$extension2 = null;
+			$extension1version = $extension1['version'] ?? null;
+			$extension2 = $info2['extensions'][$value] ?? null;
+			if ( $extension2 === null ) {
+				$info1['unique-extension-count'] = $info1['unique-extension-count'] + 1;
 			}
-			$html .= $this->formatRow( $value, $extension1, $extension2,
-				self::$extensionProperties, $diff );
+			$extension2version = $extension2['version'] ?? null;
+			$html .= $this->formatRow( $value, $extension1, $extension2, self::$extensionProperties,
+				$extension1 !== null && $extension2 !== null &&
+				( $this->ignoreversion || $extension1version === $extension2version ) );
 		}
+
+		$html .=
+			$this->formatRow( wfMessage( 'version-compare-extension-count-label' )->text(),
+				$info1, $info2, [ 'extension-count' ], null );
+		$html .=
+			$this->formatRow( wfMessage( 'version-compare-unique-extension-count-label' )->text(),
+				$info1, $info2, [ 'unique-extension-count' ], null );
+
+		$html .= Html::openElement( 'tr' );
+		$html .= Html::openElement( 'th' );
+		$html .= Html::openElement( 'p' );
+		$html .= wfMessage( 'version-compare-same-extension-count-label' )->text();
+		$html .= Html::closeElement( 'p' );
+		$html .= Html::closeElement( 'th' );
+		$html .= Html::openElement( 'td', [ 'colspan' => 2 ] );
+		$html .= Html::openElement( 'p' );
+		$html .= $info1['extension-count'] - $info1['unique-extension-count'];
+		$html .= Html::closeElement( 'p' );
+		$html .= Html::closeElement( 'td' );
+		$html .= Html::closeElement( 'tr' );
 
 		$html .= Html::closeElement( 'table' );
 
 		return $html;
 	}
 
-	private function formatRow( $label, $info1, $info2, $properties, $diff ) {
-		$match = $this->compareFields( $info1, $info2, $properties );
-		if ( $match && $diff ) {
-			return;
+	private function formatRow( string $label, ?array $info1, ?array $info2, array $properties, ?bool $match ): string {
+		if ( $match !== null ) {
+			if ( !$match && $this->hidediff ) {
+				return '';
+			}
+			if ( $match && $this->hidematch ) {
+				return '';
+			}
 		}
+
 		$html = Html::openElement( 'tr' );
-		if ( $match ) {
+		if ( $match === null ) {
+			$html .= Html::openElement( 'th' );
+		} elseif ( $match ) {
 			$html .= Html::openElement( 'th', [ 'class' => 'version-compare-same' ] );
 		} elseif ( $info1 === null ) {
 			$html .= Html::openElement( 'th', [ 'class' => 'version-compare-wiki-2' ] );
 		} elseif ( $info2 === null ) {
 			$html .= Html::openElement( 'th', [ 'class' => 'version-compare-wiki-1' ] );
 		} else {
-			$html .=
-				Html::openElement( 'th', [ 'class' => 'version-compare-different' ] );
+			$html .= Html::openElement( 'th', [ 'class' => 'version-compare-different' ] );
 		}
 		$html .= Html::openElement( 'p' );
 		$html .= $label;
 		$html .= Html::closeElement( 'p' );
 		$html .= Html::closeElement( 'th' );
-		if ( $match ) {
+		$identical = $this->identicalProperties( $info1, $info2, $properties );
+		if ( $identical ) {
 			$html .= Html::openElement( 'td', [ 'colspan' => 2 ] );
 		} else {
 			$html .= Html::openElement( 'td' );
@@ -241,15 +293,22 @@ class SpecialVersionCompare extends SpecialPage {
 			$html .= '&empty;';
 			$html .= Html::closeElement( 'p' );
 		} else {
+			$version = '';
 			foreach ( $properties as $property ) {
-				if ( isset( $info1[$property] ) ) {
-					$html .= Html::openElement( 'p' );
-					$html .= $info1[$property];
-					$html .= Html::closeElement( 'p' );
+				if ( isset( $info1[$property] ) && $info1[$property] != '' ) {
+					$version .= Html::openElement( 'p' );
+					$version .= $info1[$property];
+					$version .= Html::closeElement( 'p' );
 				}
 			}
+			if ( $version == '' ) {
+				$version .= Html::openElement( 'p' );
+				$version .= wfMessage( 'version-compare-no-version' )->text();
+				$version .= Html::closeElement( 'p' );
+			}
+			$html .= $version;
 		}
-		if ( !$match ) {
+		if ( !$identical ) {
 			$html .= Html::closeElement( 'td' );
 			$html .= Html::openElement( 'td' );
 			if ( $info2 === null ) {
@@ -257,13 +316,20 @@ class SpecialVersionCompare extends SpecialPage {
 				$html .= '&empty;';
 				$html .= Html::closeElement( 'p' );
 			} else {
+				$version = '';
 				foreach ( $properties as $property ) {
-					if ( isset( $info2[$property] ) ) {
-						$html .= Html::openElement( 'p' );
-						$html .= $info2[$property];
-						$html .= Html::closeElement( 'p' );
+					if ( isset( $info2[$property] ) && $info2[$property] != '' ) {
+						$version .= Html::openElement( 'p' );
+						$version .= $info2[$property];
+						$version .= Html::closeElement( 'p' );
 					}
 				}
+				if ( $version == '' ) {
+					$version .= Html::openElement( 'p' );
+					$version .= wfMessage( 'version-compare-no-version' )->text();
+					$version .= Html::closeElement( 'p' );
+				}
+				$html .= $version;
 			}
 		}
 		$html .= Html::closeElement( 'td' );
@@ -272,11 +338,16 @@ class SpecialVersionCompare extends SpecialPage {
 		return $html;
 	}
 
-	private function compareFields( $info1, $info2, $properties ) {
+	private function identicalProperties( ?array $info1, ?array $info2, array $properties ): bool {
+		if ( $info1 === null || $info2 === null ) {
+			return false;
+		}
 		foreach ( $properties as $property ) {
-			if ( !isset( $info1[$property] ) || !isset( $info2[$property] ) ||
-				$info1[$property] !== $info2[$property] ) {
-				return false;
+			if ( isset( $info1[$property] ) || isset( $info2[$property] ) ) {
+				if ( !isset( $info1[$property] ) || !isset( $info2[$property] ) ||
+					$info1[$property] != $info2[$property] ) {
+					return false;
+				}
 			}
 		}
 		return true;
