@@ -9,10 +9,16 @@
 	"versioncompare": "The name of the extension's entry in Special:SpecialPages",
 	"version-compare-desc": "{{desc|name=VersionCompare|url=https://www.mediawiki.org/wiki/Extension:VersionCompare}}",
 	"version-compare-database-label": "Field label\n{{Identical|Database}}",
+	"version-compare-extension-count-label": "Field label",
+	"version-compare-unique-extension-count-label": "Field label",
+	"version-compare-same-extension-count-label": "Field label",
+	"version-compare-no-version": "Indicates that there is no version for this extension",
 	"version-compare-url-error": "Error message",
 	"version-compare-url-field-label-1": "{{optional}}\nField label",
 	"version-compare-url-field-help-1": "Field help",
 	"version-compare-url-field-label-2": "{{optional}}\nField label",
 	"version-compare-url-field-help-2": "Field help",
-	"version-compare-diff-field-label": "Field label"
+	"version-compare-hide-diff-field-label": "Field label",
+	"version-compare-hide-match-field-label": "Field label",
+	"version-compare-ignore-version-field-label": "Field label"
 }
