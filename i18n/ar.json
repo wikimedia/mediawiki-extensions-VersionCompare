@@ -13,6 +13,5 @@
 	"version-compare-url-field-label-1": "مسار الAPI #1:",
 	"version-compare-url-field-help-1": "مسار API (ينتهي بـapi.php) للويكي الأول للمقارنة، سوف يستخدم الويكي الحالي إذا تُرِك فارغا.",
 	"version-compare-url-field-label-2": "مسار الAPI #2:",
-	"version-compare-url-field-help-2": "مسار API (ينتهي بـapi.php) للويكي الثاني للمقارنة، سوف يستخدم الويكي الحالي إذا تُرِك فارغا.",
-	"version-compare-diff-field-label": "إظهار الفروق فقط"
+	"version-compare-url-field-help-2": "مسار API (ينتهي بـapi.php) للويكي الثاني للمقارنة، سوف يستخدم الويكي الحالي إذا تُرِك فارغا."
 }

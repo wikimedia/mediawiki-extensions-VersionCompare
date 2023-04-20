@@ -9,6 +9,5 @@
 	"version-compare-database-label": "Podatkovna zbirka",
 	"version-compare-url-error": "Napaka pri pridobivanju podatkov od $1.",
 	"version-compare-url-field-help-1": "URL API-ja (konča se z api.php) prvega vikija za primerjavo. Če bo polje ostalo prazno, bo uporabljen trenutni viki.",
-	"version-compare-url-field-help-2": "URL API-ja (konča se z api.php) drugega vikija za primerjavo. Če bo polje ostalo prazno, bo uporabljen trenutni viki.",
-	"version-compare-diff-field-label": "Prikaži samo razlike"
+	"version-compare-url-field-help-2": "URL API-ja (konča se z api.php) drugega vikija za primerjavo. Če bo polje ostalo prazno, bo uporabljen trenutni viki."
 }

@@ -7,6 +7,5 @@
 	"versioncompare": "Version vertailu",
 	"version-compare-desc": "Näytä kahden wikin ydinkomponenttien ja laajennusten versioiden vertailu",
 	"version-compare-database-label": "Tietokanta",
-	"version-compare-url-error": "Virhe haettaessa dataa kohteesta $1.",
-	"version-compare-diff-field-label": "Näytä vain eroavaisuudet"
+	"version-compare-url-error": "Virhe haettaessa dataa kohteesta $1."
 }

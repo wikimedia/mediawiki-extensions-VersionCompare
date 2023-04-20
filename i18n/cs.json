@@ -9,6 +9,5 @@
 	"version-compare-database-label": "Databáze",
 	"version-compare-url-error": "Chyba při získávání dat z $1.",
 	"version-compare-url-field-help-1": "API URL (končící na api.php) na první wiki k porovnání. Použije aktuální wiki, pokud zůstane prázdný.",
-	"version-compare-url-field-help-2": "API URL (končící na api.php) na druhé wiki k porovnání. Použije aktuální wiki, pokud zůstane prázdný.",
-	"version-compare-diff-field-label": "Zobrazit pouze rozdíly"
+	"version-compare-url-field-help-2": "API URL (končící na api.php) na druhé wiki k porovnání. Použije aktuální wiki, pokud zůstane prázdný."
 }

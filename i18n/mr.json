@@ -9,6 +9,5 @@
 	"version-compare-database-label": "डाटाबेस",
 	"version-compare-url-error": "$1 पासून माहिती घेताना त्रुटी आली आहे.",
 	"version-compare-url-field-help-1": "API URL (api.php मध्ये संपणारा) पहिल्या विकीशी तुलना करण्यासाठी. जर मोकळे सोडले तर आत्ताची विकी वापरली जाईल.",
-	"version-compare-url-field-help-2": "API URL (api.php मध्ये संपणारा) दुसऱ्या विकीशी तुलना करण्यासाठी. जर मोकळा सोडला तर आत्ताच्या विकी वापरला जाईल",
-	"version-compare-diff-field-label": "फक्त फरक दाखवा"
+	"version-compare-url-field-help-2": "API URL (api.php मध्ये संपणारा) दुसऱ्या विकीशी तुलना करण्यासाठी. जर मोकळा सोडला तर आत्ताच्या विकी वापरला जाईल"
 }

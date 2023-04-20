@@ -9,6 +9,5 @@
 	"version-compare-database-label": "Base de datos",
 	"version-compare-url-error": "Error obtenente datos de $1.",
 	"version-compare-url-field-help-1": "URL del API (finiente in api.php) del prime wiki a comparar. Le wiki actual essera usate si isto es lassate vacue.",
-	"version-compare-url-field-help-2": "URL del API (finiente in api.php) del secunde wiki a comparar. Le wiki actual essera usate si isto es lassate vacue.",
-	"version-compare-diff-field-label": "Monstrar solmente differentias"
+	"version-compare-url-field-help-2": "URL del API (finiente in api.php) del secunde wiki a comparar. Le wiki actual essera usate si isto es lassate vacue."
 }
