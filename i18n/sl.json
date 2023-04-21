@@ -7,7 +7,14 @@
 	"versioncompare": "Primerjava različic",
 	"version-compare-desc": "Prikaži primerjavo različic jedrne komponente in razširitev med dvema vikijema",
 	"version-compare-database-label": "Podatkovna zbirka",
+	"version-compare-extension-count-label": "Skupno število vseh razširitev in preoblek",
+	"version-compare-unique-extension-count-label": "Število razširitev in preoblek samo v tem vikiju",
+	"version-compare-same-extension-count-label": "Število razširitev in preoblek v obeh vikijih",
+	"version-compare-no-version": "brez različice",
 	"version-compare-url-error": "Napaka pri pridobivanju podatkov od $1.",
 	"version-compare-url-field-help-1": "URL API-ja (konča se z api.php) prvega vikija za primerjavo. Če bo polje ostalo prazno, bo uporabljen trenutni viki.",
-	"version-compare-url-field-help-2": "URL API-ja (konča se z api.php) drugega vikija za primerjavo. Če bo polje ostalo prazno, bo uporabljen trenutni viki."
+	"version-compare-url-field-help-2": "URL API-ja (konča se z api.php) drugega vikija za primerjavo. Če bo polje ostalo prazno, bo uporabljen trenutni viki.",
+	"version-compare-hide-diff-field-label": "Skrij razširitve/preobleke, ki so drugačne",
+	"version-compare-hide-match-field-label": "Skrij razširitve/preobleke, ki se ujemajo",
+	"version-compare-ignore-version-field-label": "Prezri različico pri odločanju, ali se razširitve/preobleke ujemajo"
 }
