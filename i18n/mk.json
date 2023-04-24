@@ -7,9 +7,16 @@
 	"versioncompare": "Споредба на верзии",
 	"version-compare-desc": "Прикажува споредба на јадрената составница и верзиите на додатокот помеѓу две викија",
 	"version-compare-database-label": "База",
+	"version-compare-extension-count-label": "Севкупно додатоци и рува",
+	"version-compare-unique-extension-count-label": "Број на сите додатоци и рува само на ова вики",
+	"version-compare-same-extension-count-label": "Број на додатоците и рувата на обете викија",
+	"version-compare-no-version": "нема верзија",
 	"version-compare-url-error": "Грешка при добивањето на податоците од $1.",
 	"version-compare-url-field-label-1": "Извршничка адреса бр. 1:",
 	"version-compare-url-field-help-1": "Адреса на извршникот (завршува со api.php) на првото вики што се споредува. Ќе биде тековното, ако ова го оставите празно.",
 	"version-compare-url-field-label-2": "Извршничка адреса бр. 2:",
-	"version-compare-url-field-help-2": "Адреса на извршникот (завршува со api.php) на второто вики што се споредува. Ќе биде тековното, ако ова го оставите празно."
+	"version-compare-url-field-help-2": "Адреса на извршникот (завршува со api.php) на второто вики што се споредува. Ќе биде тековното, ако ова го оставите празно.",
+	"version-compare-hide-diff-field-label": "Скриј додатоци/рува што се разликуваат",
+	"version-compare-hide-match-field-label": "Скриј додатоци/рува што се поклопуваат",
+	"version-compare-ignore-version-field-label": "Занемари ја верзијата при одлуката дали додатоците/рувата се поклопуваат"
 }
