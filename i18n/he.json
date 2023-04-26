@@ -8,7 +8,14 @@
 	"versioncompare": "השוואת גרסאות",
 	"version-compare-desc": "הצגת השוואה בין גרסאות של רכיב ליבה ושך הרחבות בין שני אתרי ויקי",
 	"version-compare-database-label": "מסד נתונים",
+	"version-compare-extension-count-label": "ספירה כוללת של כל ההרחבות והעיצובים",
+	"version-compare-unique-extension-count-label": "ספירת ההרחבות והעיצובים רק בוויקי הזה",
+	"version-compare-same-extension-count-label": "ספירת ההרחבות והעיצובים בשני אתרי הוויקי",
+	"version-compare-no-version": "אין גרסה",
 	"version-compare-url-error": "אירעה שגיאה בקבלת הנתונים מתוך $1.",
 	"version-compare-url-field-help-1": "כתובת ה־URL של ה־API (מסתיימת ב־api.php) של הוויקי הראשון להשוואה. הוויקי הנוכחי ישמש אם זה יישאר ריק.",
-	"version-compare-url-field-help-2": "כתובת ה־URL של ה־API (מסתיימת ב־api.php) של הוויקי השני להשוואה. הוויקי הנוכחי ישמש אם זה יישאר ריק."
+	"version-compare-url-field-help-2": "כתובת ה־URL של ה־API (מסתיימת ב־api.php) של הוויקי השני להשוואה. הוויקי הנוכחי ישמש אם זה יישאר ריק.",
+	"version-compare-hide-diff-field-label": "הסתרת הרחבות/עיצובים שונים",
+	"version-compare-hide-match-field-label": "הסתרת הרחבות/עיצובים שתואמים",
+	"version-compare-ignore-version-field-label": "להתעלם מהגרסה כשמחליטים אם הרחבות/עיצובים תואמים"
 }
