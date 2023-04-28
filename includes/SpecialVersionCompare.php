@@ -171,6 +171,17 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 		return $ret;
 	}
 
+	/**
+	 * Get HTML for showing the logo or a message indicating that there is no logo.
+	 * @param array $info
+	 * @return string HTML string
+	 */
+	private function getLogo( array $info ): string {
+		return $info['logo']
+			? Html::element( 'img', [ 'src' => $info['logo'] ] )
+			: Html::element( 'em', [], $this->msg( 'version-compare-no-logo' ) );
+	}
+
 	private function compareWikis( $info1, $info2 ): string {
 		$html = Html::openElement( 'table', [ 'class' => 'version-compare-table' ] );
 
@@ -179,7 +190,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 		$html .= Html::closeElement( 'th' );
 		$html .= Html::openElement( 'th',
 			[ 'class' => 'version-compare-wiki-1', 'width' => '35%' ] );
-		$html .= Html::element( 'img', [ 'src' => $info1['logo'] ] );
+		$html .= $this->getLogo( $info1 );
 		$html .= Html::openElement( 'p' );
 		$html .= $info1['wikiid'];
 		$html .= Html::closeElement( 'p' );
@@ -189,7 +200,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 		$html .= Html::closeElement( 'th' );
 		$html .= Html::openElement( 'th',
 			[ 'class' => 'version-compare-wiki-2', 'width' => '35%' ] );
-		$html .= Html::element( 'img', [ 'src' => $info2['logo'] ] );
+		$html .= $this->getLogo( $info2 );
 		$html .= Html::openElement( 'p' );
 		$html .= $info2['wikiid'];
 		$html .= Html::closeElement( 'p' );
