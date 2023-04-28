@@ -80,7 +80,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 			if ( $info1 === null ) {
 				$html = Html::element( 'br' ) .
 					Html::element( 'p', [ 'class' => 'error' ],
-						wfMessage( 'version-compare-url-error', $url1 )->text()
+						$this->msg( 'version-compare-url-error', $url1 )->text()
 					);
 				$output->addHTML( $html );
 				return;
@@ -90,7 +90,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 			if ( $info2 === null ) {
 				$html = Html::element( 'br' ) .
 					Html::element( 'p', [ 'class' => 'error' ],
-						wfMessage( 'version-compare-url-error', $url2 )->text()
+						$this->msg( 'version-compare-url-error', $url2 )->text()
 					);
 				$output->addHTML( $html );
 				return;
@@ -201,7 +201,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 
 		$html .= $this->formatRow( 'MediaWiki', $info1, $info2, [ 'generator', 'git-hash' ], null );
 		$html .= $this->formatRow( 'PHP', $info1, $info2, [ 'phpversion', 'phpsapi' ], null );
-		$html .= $this->formatRow( wfMessage( 'version-compare-database-label' )->text(), $info1, $info2,
+		$html .= $this->formatRow( $this->msg( 'version-compare-database-label' )->text(), $info1, $info2,
 			[ 'dbtype', 'dbversion' ], null );
 
 		$extensions = [];
@@ -232,16 +232,16 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 		}
 
 		$html .=
-			$this->formatRow( wfMessage( 'version-compare-extension-count-label' )->text(),
+			$this->formatRow( $this->msg( 'version-compare-extension-count-label' )->text(),
 				$info1, $info2, [ 'extension-count' ], null );
 		$html .=
-			$this->formatRow( wfMessage( 'version-compare-unique-extension-count-label' )->text(),
+			$this->formatRow( $this->msg( 'version-compare-unique-extension-count-label' )->text(),
 				$info1, $info2, [ 'unique-extension-count' ], null );
 
 		$html .= Html::openElement( 'tr' );
 		$html .= Html::openElement( 'th' );
 		$html .= Html::openElement( 'p' );
-		$html .= wfMessage( 'version-compare-same-extension-count-label' )->text();
+		$html .= $this->msg( 'version-compare-same-extension-count-label' )->text();
 		$html .= Html::closeElement( 'p' );
 		$html .= Html::closeElement( 'th' );
 		$html .= Html::openElement( 'td', [ 'colspan' => 2 ] );
@@ -303,7 +303,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 			}
 			if ( $version == '' ) {
 				$version .= Html::openElement( 'p' );
-				$version .= wfMessage( 'version-compare-no-version' )->text();
+				$version .= $this->msg( 'version-compare-no-version' )->text();
 				$version .= Html::closeElement( 'p' );
 			}
 			$html .= $version;
@@ -326,7 +326,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 				}
 				if ( $version == '' ) {
 					$version .= Html::openElement( 'p' );
-					$version .= wfMessage( 'version-compare-no-version' )->text();
+					$version .= $this->msg( 'version-compare-no-version' )->text();
 					$version .= Html::closeElement( 'p' );
 				}
 				$html .= $version;
