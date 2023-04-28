@@ -13,6 +13,7 @@
 	"version-compare-unique-extension-count-label": "Field label",
 	"version-compare-same-extension-count-label": "Field label",
 	"version-compare-no-version": "Indicates that there is no version for this extension",
+	"version-compare-no-logo": "Indicates that there is no logo for this site",
 	"version-compare-url-error": "Error message",
 	"version-compare-url-field-label-1": "{{optional}}\nField label",
 	"version-compare-url-field-help-1": "Field help",
