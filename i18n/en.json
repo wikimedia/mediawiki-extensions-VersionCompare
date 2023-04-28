@@ -11,6 +11,7 @@
 	"version-compare-unique-extension-count-label": "Count of extensions and skins only on this wiki",
 	"version-compare-same-extension-count-label": "Count of extensions and skins on both wikis",
 	"version-compare-no-version": "no version",
+	"version-compare-no-logo": "no logo",
 	"version-compare-url-error": "Error getting data from $1.",
 	"version-compare-url-field-label-1": "API URL #1:",
 	"version-compare-url-field-help-1": "API URL (ending in api.php) of the first wiki to compare. Will use the current wiki if left blank.",
