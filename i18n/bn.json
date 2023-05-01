@@ -7,5 +7,6 @@
 	},
 	"versioncompare": "সংস্করণ তুলনা",
 	"version-compare-database-label": "ডেটাবেজ",
+	"version-compare-no-logo": "কোনও লোগো নেই",
 	"version-compare-url-error": "$1 থেকে উপাত্ত আনতে ত্রুটি।"
 }

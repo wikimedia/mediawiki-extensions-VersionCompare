@@ -11,6 +11,7 @@
 	"version-compare-unique-extension-count-label": "Број на сите додатоци и рува само на ова вики",
 	"version-compare-same-extension-count-label": "Број на додатоците и рувата на обете викија",
 	"version-compare-no-version": "нема верзија",
+	"version-compare-no-logo": "нема лого",
 	"version-compare-url-error": "Грешка при добивањето на податоците од $1.",
 	"version-compare-url-field-label-1": "Извршничка адреса бр. 1:",
 	"version-compare-url-field-help-1": "Адреса на извршникот (завршува со api.php) на првото вики што се споредува. Ќе биде тековното, ако ова го оставите празно.",

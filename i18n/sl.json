@@ -11,6 +11,7 @@
 	"version-compare-unique-extension-count-label": "Število razširitev in preoblek samo v tem vikiju",
 	"version-compare-same-extension-count-label": "Število razširitev in preoblek v obeh vikijih",
 	"version-compare-no-version": "brez različice",
+	"version-compare-no-logo": "ni logotipa",
 	"version-compare-url-error": "Napaka pri pridobivanju podatkov od $1.",
 	"version-compare-url-field-help-1": "URL API-ja (konča se z api.php) prvega vikija za primerjavo. Če bo polje ostalo prazno, bo uporabljen trenutni viki.",
 	"version-compare-url-field-help-2": "URL API-ja (konča se z api.php) drugega vikija za primerjavo. Če bo polje ostalo prazno, bo uporabljen trenutni viki.",
