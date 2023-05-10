@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alshamiri1",
 			"Hakim",
 			"Meno25",
 			"ديفيد"
@@ -9,6 +10,7 @@
 	"versioncompare": "مقارنة الاصدار",
 	"version-compare-desc": "عرض المقارنة بين المكونات الأساسية والإضافات بين موقعي ويكي",
 	"version-compare-database-label": "قاعدة بيانات",
+	"version-compare-no-logo": "لا يوجد شعار",
 	"version-compare-url-error": "خطأ في الحصول على البيانات من $1.",
 	"version-compare-url-field-label-1": "مسار الAPI #1:",
 	"version-compare-url-field-help-1": "مسار API (ينتهي بـapi.php) للويكي الأول للمقارنة، سوف يستخدم الويكي الحالي إذا تُرِك فارغا.",
