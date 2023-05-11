@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"versioncompare": "Versioun Vergläichen",
-	"version-compare-database-label": "Datebank"
+	"version-compare-database-label": "Datebank",
+	"version-compare-no-logo": "kee Logo"
 }
