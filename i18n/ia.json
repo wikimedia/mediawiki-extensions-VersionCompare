@@ -7,8 +7,15 @@
 	"versioncompare": "Comparation de versiones",
 	"version-compare-desc": "Monstra un comparation del versiones del componentes central e del extensiones de duo wikis",
 	"version-compare-database-label": "Base de datos",
+	"version-compare-extension-count-label": "Numero total de extensiones e apparentias",
+	"version-compare-unique-extension-count-label": "Numero de extensiones e apparentias solmente sur iste wiki",
+	"version-compare-same-extension-count-label": "Numero de extensiones e apparentias sur ambe wikis",
+	"version-compare-no-version": "necun version",
+	"version-compare-no-logo": "sin logo",
 	"version-compare-url-error": "Error obtenente datos de $1.",
 	"version-compare-url-field-help-1": "URL del API (finiente in api.php) del prime wiki a comparar. Le wiki actual essera usate si isto es lassate vacue.",
 	"version-compare-url-field-help-2": "URL del API (finiente in api.php) del secunde wiki a comparar. Le wiki actual essera usate si isto es lassate vacue.",
-	"version-compare-diff-field-label": "Monstrar solmente differentias"
+	"version-compare-hide-diff-field-label": "Celar extensiones/apparentias differente",
+	"version-compare-hide-match-field-label": "Celar extensiones/apparentias correspondente",
+	"version-compare-ignore-version-field-label": "Ignorar version quando se decide si extensiones/apparentias corresponde"
 }

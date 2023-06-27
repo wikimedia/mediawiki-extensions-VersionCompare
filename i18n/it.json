@@ -4,5 +4,12 @@
 			"Beta16"
 		]
 	},
-	"version-compare-database-label": "Database"
+	"version-compare-database-label": "Database",
+	"version-compare-extension-count-label": "Conteggio totale di tutte le estensioni e temi",
+	"version-compare-unique-extension-count-label": "Numero di estensioni e temi solo su questo wiki",
+	"version-compare-same-extension-count-label": "Numero di estensioni e temi su entrambi i wiki",
+	"version-compare-no-version": "nessuna versione",
+	"version-compare-hide-diff-field-label": "Nascondi estensioni/temi che sono differenti",
+	"version-compare-hide-match-field-label": "Nascondi estensioni/temi che corrispondono",
+	"version-compare-ignore-version-field-label": "Ignora la versione quando decidi se estensioni/temi corrispondono"
 }

@@ -9,10 +9,17 @@
 	"versioncompare": "Comparaison de version",
 	"version-compare-desc": "Afficher la comparaison des versions du composant principal et des extensions entre deux wikis",
 	"version-compare-database-label": "Base de données",
+	"version-compare-extension-count-label": "Nombre total d’extensions et d’habillages",
+	"version-compare-unique-extension-count-label": "Nombre d’extensions et d’habillages uniquement sur ce wiki",
+	"version-compare-same-extension-count-label": "Nombre d’extensions et d’habillages sur les deux wikis",
+	"version-compare-no-version": "aucune version",
+	"version-compare-no-logo": "aucun logo",
 	"version-compare-url-error": "Erreur d’obtention des données de $1.",
 	"version-compare-url-field-label-1": "URL de l’API nº 1 :",
 	"version-compare-url-field-help-1": "URL de l’API (se terminant en api.php) du premier wiki à comparer. Cela utilisera le wiki actuel si c’est laissé vide.",
 	"version-compare-url-field-label-2": "URL de l’API nº 2 :",
 	"version-compare-url-field-help-2": "URL de l’API (se terminant en api.php) du second wiki à comparer. Cela utilisera le wiki actuel si c’est laissé vide.",
-	"version-compare-diff-field-label": "Afficher seulement les différences"
+	"version-compare-hide-diff-field-label": "Masquer les extensions/habillages différents",
+	"version-compare-hide-match-field-label": "Masquer les extensions/habillages qui correspondent",
+	"version-compare-ignore-version-field-label": "Ignorer la version pour décider si les extensions/habillages correspondent"
 }
