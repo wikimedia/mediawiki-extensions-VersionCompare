@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Suyama"
+			"Suyama",
+			"Thibaut120094"
 		]
 	},
-	"version-compare-database-label": "データベース"
+	"version-compare-database-label": "データベース",
+	"version-compare-no-version": "バージョンなし",
+	"version-compare-no-logo": "ロゴなし"
 }

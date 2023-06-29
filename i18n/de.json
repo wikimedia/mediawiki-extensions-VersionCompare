@@ -7,10 +7,17 @@
 	"versioncompare": "Versionsvergleich",
 	"version-compare-desc": "Ermöglicht die Anzeige eines Vergleichs von Kernkomponenten und Softwareerweiterungsversionen zwischen zwei Wikis",
 	"version-compare-database-label": "Datenbank",
+	"version-compare-extension-count-label": "Gesamtzahl aller Erweiterungen und Skins",
+	"version-compare-unique-extension-count-label": "Anzahl der Erweiterungen und Skins nur in diesem Wiki",
+	"version-compare-same-extension-count-label": "Anzahl der Erweiterungen und Skins in beiden Wikis",
+	"version-compare-no-version": "keine Version",
+	"version-compare-no-logo": "kein Logo",
 	"version-compare-url-error": "Fehler beim Abruf der Daten von $1.",
 	"version-compare-url-field-label-1": "Erste API-URL:",
 	"version-compare-url-field-help-1": "API-URL (endet auf api.php) des ersten zu vergleichenden Wikis. Falls leer gelassen, wird das aktuelle Wiki verwendet.",
 	"version-compare-url-field-label-2": "Zweite API-URL:",
 	"version-compare-url-field-help-2": "API-URL (endet auf api.php) des zweiten zu vergleichenden Wikis. Falls leer gelassen, wird das aktuelle Wiki verwendet.",
-	"version-compare-diff-field-label": "Nur Unterschiede anzeigen"
+	"version-compare-hide-diff-field-label": "Ausblenden von Erweiterungen/Skins, die sich unterscheiden",
+	"version-compare-hide-match-field-label": "Übereinstimmende Erweiterungen/Skins ausblenden",
+	"version-compare-ignore-version-field-label": "Ignorieren der Version bei der Entscheidung, ob Erweiterungen/Skins passen"
 }
