@@ -7,9 +7,17 @@
 	"versioncompare": "Versjonssammenligning",
 	"version-compare-desc": "Vis sammenligning mellom kjernekomponenten og utvidelsesversjonen mellom to wikier",
 	"version-compare-database-label": "Database",
+	"version-compare-extension-count-label": "Totalt antall utvidelser og drakter",
+	"version-compare-unique-extension-count-label": "Antall utvidelser og drakter kun på denne wikien",
+	"version-compare-same-extension-count-label": "Antall utvidelser og drakter som er på begge wikier",
+	"version-compare-no-version": "ingen versjon",
+	"version-compare-no-logo": "ingen logo",
 	"version-compare-url-error": "Feil under henting av data fra $1.",
 	"version-compare-url-field-label-1": "API-URL #1:",
 	"version-compare-url-field-help-1": "API-URL (slutter på api.php) til den første wikien som skal sammenlignes. Bruk den gjeldende wikien hvis den er tom.",
 	"version-compare-url-field-label-2": "API-URL #2:",
-	"version-compare-url-field-help-2": "API-URL (slutter på api.php) til den andre wikien som skal sammenlignes. Bruk den gjeldende wikien hvis den er tom."
+	"version-compare-url-field-help-2": "API-URL (slutter på api.php) til den andre wikien som skal sammenlignes. Bruk den gjeldende wikien hvis den er tom.",
+	"version-compare-hide-diff-field-label": "Skjul utvidelser/drakter som er forskjellige",
+	"version-compare-hide-match-field-label": "Skjul utvidelser/drakter som matcher",
+	"version-compare-ignore-version-field-label": "Ignorer versjon når det skal bestemmes hvilke utvidelser/drakter som matcher"
 }
