@@ -8,8 +8,15 @@
 	"versioncompare": "版本比較",
 	"version-compare-desc": "顯示兩個wiki之間的核心組件與擴充套件版本。",
 	"version-compare-database-label": "資料庫",
+	"version-compare-extension-count-label": "所有擴充與外觀的總數",
+	"version-compare-unique-extension-count-label": "僅此 wiki 上的擴充和外觀計數",
+	"version-compare-same-extension-count-label": "兩方 wiki 上的擴充和外觀計數",
+	"version-compare-no-version": "無版本",
+	"version-compare-no-logo": "無標誌",
 	"version-compare-url-error": "從 $1 取得資料時發生錯誤。",
 	"version-compare-url-field-help-1": "用來比較的首個 wiki 之 API URL（以 api.php 作為結尾）。若留空則會使用目前的 wiki。",
 	"version-compare-url-field-help-2": "用來比較的第二個 wiki 之 API URL（以 api.php 作為結尾）。若留空則會使用目前的 wiki。",
-	"version-compare-diff-field-label": "僅顯示差異"
+	"version-compare-hide-diff-field-label": "隱藏不同的擴充/外觀",
+	"version-compare-hide-match-field-label": "隱藏匹配的擴充/外觀",
+	"version-compare-ignore-version-field-label": "在決定擴充/外觀匹配時是否忽略版本"
 }
