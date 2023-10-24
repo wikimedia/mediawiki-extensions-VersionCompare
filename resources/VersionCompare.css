@@ -2,7 +2,9 @@
 	margin-top: 20px;
 }
 
-.version-compare-table, .version-compare-table th, .version-compare-table td {
+.version-compare-table,
+.version-compare-table th,
+.version-compare-table td {
 	border: 1px solid #ccc;
 	border-collapse: collapse;
 	text-align: center;
@@ -14,10 +16,11 @@
 }
 
 .version-compare-table p {
-	margin: 0px;
+	margin: 0;
 	line-height: 1.2em;
 }
 
+/* stylelint-disable-next-line block-no-empty */
 .version-compare-same {
 }
 
