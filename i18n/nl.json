@@ -1,10 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mainframe98"
+			"Mainframe98",
+			"McDutchie"
 		]
 	},
+	"versioncompare": "Versies vergelijken",
+	"version-compare-desc": "Toon vergelijking van versies van kerncomponenten en uitbreidingen tussen twee wiki’s",
 	"version-compare-database-label": "Database",
+	"version-compare-extension-count-label": "Totaal aantal uitbreidingen en vormgevingen",
+	"version-compare-unique-extension-count-label": "Aantal uitbreidingen en vormgevingen die alleen op deze wiki staan",
+	"version-compare-same-extension-count-label": "Aantal uitbreidingen en vormgevingen die op beide wiki’s staan",
+	"version-compare-no-version": "geen versie",
+	"version-compare-no-logo": "geen logo",
 	"version-compare-url-error": "Er trad een fout op bij het ophalen van informatie van $1.",
-	"version-compare-diff-field-label": "Toon alleen verschillen"
+	"version-compare-url-field-label-1": "API-URL nr. 1:",
+	"version-compare-url-field-help-1": "API-URL (eindigend op api.php) van de eerste te vergelijken wiki. Bij leeg laten wordt de huidige wiki gebruikt.",
+	"version-compare-url-field-label-2": "API-URL nr. 2:",
+	"version-compare-url-field-help-2": "API-URL (eindigend op api.php) van de tweede te vergelijken wiki. Bij leeg laten wordt de huidige wiki gebruikt.",
+	"version-compare-hide-diff-field-label": "Uitbreidingen/vormgevingen die verschillend zijn verbergen",
+	"version-compare-hide-match-field-label": "Uitbreidingen/vormgevingen die hetzelfde zijn verbergen",
+	"version-compare-ignore-version-field-label": "De versie negeren bij het bepalen of uitbreidingen/vormgevingen hetzelfde zijn"
 }
