@@ -32,32 +32,32 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 				'urlfield1' => [
 					'label-message' => 'version-compare-url-field-label-1',
 					'help-message' => 'version-compare-url-field-help-1',
-					'class' => 'HTMLTextField',
+					'class' => HTMLTextField::class,
 					'default' => $url1,
 					'name' => 'url1'
 				],
 				'urlfield2' => [
 					'label-message' => 'version-compare-url-field-label-2',
 					'help-message' => 'version-compare-url-field-help-2',
-					'class' => 'HTMLTextField',
+					'class' => HTMLTextField::class,
 					'default' => $url2,
 					'name' => 'url2'
 				],
 				'hidedifffield' => [
 					'label-message' => 'version-compare-hide-diff-field-label',
-					'class' => 'HTMLCheckField',
+					'class' => HTMLCheckField::class,
 					'default' => false,
 					'name' => 'hidediff'
 				],
 				'hidematchfield' => [
 					'label-message' => 'version-compare-hide-match-field-label',
-					'class' => 'HTMLCheckField',
+					'class' => HTMLCheckField::class,
 					'default' => false,
 					'name' => 'hidematch'
 				],
 				'ignoreversionfield' => [
 					'label-message' => 'version-compare-ignore-version-field-label',
-					'class' => 'HTMLCheckField',
+					'class' => HTMLCheckField::class,
 					'default' => false,
 					'name' => 'ignoreversion'
 				],
