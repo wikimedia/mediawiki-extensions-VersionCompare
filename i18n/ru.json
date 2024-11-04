@@ -7,6 +7,5 @@
 	"versioncompare": "Сравнение версий",
 	"version-compare-desc": "Показывает сравнение ядерных компонентов и версии расширения между двумя вики",
 	"version-compare-database-label": "База",
-	"version-compare-url-error": "Ошибка при получении данных из $1.",
-	"version-compare-diff-field-label": "Пок. только отличия"
+	"version-compare-url-error": "Ошибка при получении данных из $1."
 }

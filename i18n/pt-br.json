@@ -10,6 +10,5 @@
 	"version-compare-database-label": "Base de dados",
 	"version-compare-url-error": "Falha na obtenção de dados de $1.",
 	"version-compare-url-field-help-1": "URL da API (termina com api.php) da primeira wiki para ser comparada. Por omissão, será usada a wiki atual.",
-	"version-compare-url-field-help-2": "URL da API (termina com api.php) da segunda wiki para ser comparada. Por omissão, será usada a wiki atual.",
-	"version-compare-diff-field-label": "Mostrar só as diferenças"
+	"version-compare-url-field-help-2": "URL da API (termina com api.php) da segunda wiki para ser comparada. Por omissão, será usada a wiki atual."
 }
