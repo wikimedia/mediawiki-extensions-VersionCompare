@@ -10,10 +10,17 @@
 	"versioncompare": "مقارنة الاصدار",
 	"version-compare-desc": "عرض المقارنة بين المكونات الأساسية والإضافات بين موقعي ويكي",
 	"version-compare-database-label": "قاعدة بيانات",
+	"version-compare-extension-count-label": "العدد الإجمالي لجميع الإضافات والجلود",
+	"version-compare-unique-extension-count-label": "عدد الإضافات والواجهات الموجودة على هذه الويكي فقط",
+	"version-compare-same-extension-count-label": "عدد الإضافات والواجهات على كلا الويكيين",
+	"version-compare-no-version": "لا يوجد اصدار",
 	"version-compare-no-logo": "لا يوجد شعار",
 	"version-compare-url-error": "خطأ في الحصول على البيانات من $1.",
 	"version-compare-url-field-label-1": "مسار الAPI #1:",
 	"version-compare-url-field-help-1": "مسار API (ينتهي بـapi.php) للويكي الأول للمقارنة، سوف يستخدم الويكي الحالي إذا تُرِك فارغا.",
 	"version-compare-url-field-label-2": "مسار الAPI #2:",
-	"version-compare-url-field-help-2": "مسار API (ينتهي بـapi.php) للويكي الثاني للمقارنة، سوف يستخدم الويكي الحالي إذا تُرِك فارغا."
+	"version-compare-url-field-help-2": "مسار API (ينتهي بـapi.php) للويكي الثاني للمقارنة، سوف يستخدم الويكي الحالي إذا تُرِك فارغا.",
+	"version-compare-hide-diff-field-label": "إخفاء الامتدادات/الجلود المختلفة",
+	"version-compare-hide-match-field-label": "إخفاء الامتدادات/الجلود التي تتطابق",
+	"version-compare-ignore-version-field-label": "تجاهل الإصدار عند تحديد ما إذا كانت الامتدادات/الجلود متطابقة"
 }
