@@ -1,6 +1,7 @@
 <?php
 
-use Wikimedia\AtEase\AtEase;
+use MediaWiki\Http\HttpRequestFactory;
+use MediaWiki\MediaWikiServices;
 
 class SpecialVersionCompare extends IncludableSpecialPage {
 
@@ -8,8 +9,13 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 	private bool $hidematch;
 	private bool $ignoreversion;
 
+	private HttpRequestFactory $httpRequestFactory;
+
 	public function __construct() {
 		parent::__construct( 'VersionCompare' );
+
+		$services = MediaWikiServices::getInstance();
+		$this->httpRequestFactory = $services->getHttpRequestFactory();
 	}
 
 	/**
@@ -102,18 +108,33 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 	}
 
 	private function getVersionInfo( $url ): ?array {
-		$query =
-			"?action=query&meta=siteinfo&siprop=general%7Cextensions%7Cskins&format=json";
-		AtEase::suppressWarnings();
-		$ret = file_get_contents( $url . $query );
-		AtEase::restoreWarnings();
-		if ( $ret === false ) {
+		$parsedUrl = wfParseUrl( $url );
+		if ( $parsedUrl === false ) {
 			return null;
 		}
+		if ( $parsedUrl['scheme'] !== 'http' && $parsedUrl['scheme'] !== 'https' ) {
+			return null;
+		}
+
+		$parsedQuery = wfCgiToArray( $parsedUrl['query'] ?? '' );
+		$parsedUrl['query'] = wfArrayToCgi( [
+			'action' => 'query',
+			'meta' => 'siteinfo',
+			'siprop' => 'general|extensions|skins',
+			'format' => 'json',
+		], $parsedQuery );
+
+		$url = wfAssembleUrl( $parsedUrl );
+		$ret = $this->httpRequestFactory->get( $url );
+		if ( $ret === null ) {
+			return null;
+		}
+
 		$json = json_decode( $ret );
 		if ( $json === null ) {
 			return null;
 		}
+
 		return $this->getVersionArray( $json );
 	}
 
@@ -190,22 +211,14 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 		$html .= Html::openElement( 'th',
 			[ 'class' => 'version-compare-wiki-1', 'width' => '35%' ] );
 		$html .= $this->getLogo( $info1 );
-		$html .= Html::openElement( 'p' );
-		$html .= $info1['wikiid'];
-		$html .= Html::closeElement( 'p' );
-		$html .= Html::openElement( 'p' );
-		$html .= $info1['servername'];
-		$html .= Html::closeElement( 'p' );
+		$html .= Html::element( 'p', [], $info1['wikiid'] );
+		$html .= Html::element( 'p', [], $info1['servername'] );
 		$html .= Html::closeElement( 'th' );
 		$html .= Html::openElement( 'th',
 			[ 'class' => 'version-compare-wiki-2', 'width' => '35%' ] );
 		$html .= $this->getLogo( $info2 );
-		$html .= Html::openElement( 'p' );
-		$html .= $info2['wikiid'];
-		$html .= Html::closeElement( 'p' );
-		$html .= Html::openElement( 'p' );
-		$html .= $info2['servername'];
-		$html .= Html::closeElement( 'p' );
+		$html .= Html::element( 'p', [], $info2['wikiid'] );
+		$html .= Html::element( 'p', [], $info2['servername'] );
 		$html .= Html::closeElement( 'th' );
 		$html .= Html::closeElement( 'tr' );
 
@@ -250,9 +263,8 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 
 		$html .= Html::openElement( 'tr' );
 		$html .= Html::openElement( 'th' );
-		$html .= Html::openElement( 'p' );
-		$html .= $this->msg( 'version-compare-same-extension-count-label' )->text();
-		$html .= Html::closeElement( 'p' );
+		$html .= Html::element( 'p', [],
+			$this->msg( 'version-compare-same-extension-count-label' )->text() );
 		$html .= Html::closeElement( 'th' );
 		$html .= Html::openElement( 'td', [ 'colspan' => 2 ] );
 		$html .= Html::openElement( 'p' );
@@ -288,9 +300,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 		} else {
 			$html .= Html::openElement( 'th', [ 'class' => 'version-compare-different' ] );
 		}
-		$html .= Html::openElement( 'p' );
-		$html .= $label;
-		$html .= Html::closeElement( 'p' );
+		$html .= Html::element( 'p', [], $label );
 		$html .= Html::closeElement( 'th' );
 		$identical = $this->identicalProperties( $info1, $info2, $properties );
 		if ( $identical ) {
@@ -306,15 +316,12 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 			$version = '';
 			foreach ( $properties as $property ) {
 				if ( isset( $info1[$property] ) && $info1[$property] != '' ) {
-					$version .= Html::openElement( 'p' );
-					$version .= $info1[$property];
-					$version .= Html::closeElement( 'p' );
+					$version .= Html::element( 'p', [], $info1[$property] );
 				}
 			}
 			if ( $version == '' ) {
-				$version .= Html::openElement( 'p' );
-				$version .= $this->msg( 'version-compare-no-version' )->text();
-				$version .= Html::closeElement( 'p' );
+				$version .= Html::element( 'p', [],
+					$this->msg( 'version-compare-no-version' )->text() );
 			}
 			$html .= $version;
 		}
@@ -329,15 +336,12 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 				$version = '';
 				foreach ( $properties as $property ) {
 					if ( isset( $info2[$property] ) && $info2[$property] != '' ) {
-						$version .= Html::openElement( 'p' );
-						$version .= $info2[$property];
-						$version .= Html::closeElement( 'p' );
+						$version .= Html::element( 'p', [], $info2[$property] );
 					}
 				}
 				if ( $version == '' ) {
-					$version .= Html::openElement( 'p' );
-					$version .= $this->msg( 'version-compare-no-version' )->text();
-					$version .= Html::closeElement( 'p' );
+					$version .= Html::element( 'p', [],
+						$this->msg( 'version-compare-no-version' )->text() );
 				}
 				$html .= $version;
 			}
