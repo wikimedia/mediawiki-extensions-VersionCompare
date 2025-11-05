@@ -1,8 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
-	"version-compare-database-label": "Base de datos"
+	"versioncompare": "Comparación de versións",
+	"version-compare-desc": "Mostrar a comparación das versións do compoñente principal e as versión das extensións entre dous wikis",
+	"version-compare-database-label": "Base de datos",
+	"version-compare-extension-count-label": "Número total de extensións e aparencias",
+	"version-compare-unique-extension-count-label": "Número de extensións e aparencias unicamente neste wiki",
+	"version-compare-same-extension-count-label": "Número de extensións e aparencias en ambos os wikis",
+	"version-compare-no-version": "sen versión",
+	"version-compare-no-logo": "sen logotipo",
+	"version-compare-url-error": "Erro ao obter os datos de $1.",
+	"version-compare-url-field-label-1": "URL da API n.º 1:",
+	"version-compare-url-field-help-1": "URL da API (que remata en «api.php») do primeiro wiki a comparar. Usarase o wiki actual se se deixa en branco.",
+	"version-compare-url-field-label-2": "URL da API n.º 2:",
+	"version-compare-url-field-help-2": "URL da API (que remata en «api.php») do segundo wiki a comparar. Usarase o wiki actual se se deixa en branco.",
+	"version-compare-hide-diff-field-label": "Agochar as extensións/aparencias que sexan diferentes",
+	"version-compare-hide-match-field-label": "Agochar as extensións/aparencias que coincidan",
+	"version-compare-ignore-version-field-label": "Ignorar a versión para decidir se as extensións/aparencias coinciden"
 }
