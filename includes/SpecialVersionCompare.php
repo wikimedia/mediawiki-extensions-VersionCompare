@@ -3,6 +3,7 @@
 use MediaWiki\Html\Html;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Utils\UrlUtils;
 
 class SpecialVersionCompare extends IncludableSpecialPage {
 
@@ -109,7 +110,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 	}
 
 	private function getVersionInfo( $url ): ?array {
-		$parsedUrl = wfParseUrl( $url );
+		$parsedUrl = MediaWikiServices::getInstance()->getUrlUtils()->parse( $url );
 		if ( $parsedUrl === false ) {
 			return null;
 		}
@@ -125,7 +126,7 @@ class SpecialVersionCompare extends IncludableSpecialPage {
 			'format' => 'json',
 		], $parsedQuery );
 
-		$url = wfAssembleUrl( $parsedUrl );
+		$url = UrlUtils::assemble( $parsedUrl );
 		$ret = $this->httpRequestFactory->get( $url );
 		if ( $ret === null ) {
 			return null;
