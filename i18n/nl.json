@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
-			"McDutchie"
+			"McDutchie",
+			"Siebrand"
 		]
 	},
 	"versioncompare": "Versies vergelijken",
-	"version-compare-desc": "Toon vergelijking van versies van kerncomponenten en uitbreidingen tussen twee wiki’s",
+	"version-compare-desc": "Vergelijking maken tussen versies van kerncomponenten en uitbreidingen van twee wiki’s",
 	"version-compare-database-label": "Database",
 	"version-compare-extension-count-label": "Totaal aantal uitbreidingen en vormgevingen",
 	"version-compare-unique-extension-count-label": "Aantal uitbreidingen en vormgevingen die alleen op deze wiki staan",
