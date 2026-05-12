@@ -1,13 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
 	"versioncompare": "판 비교",
+	"version-compare-desc": "두 위키의 핵심 구성 요소 및 확장 기능 버전 비교를 표시합니다",
 	"version-compare-database-label": "데이터베이스",
+	"version-compare-extension-count-label": "모든 확장 기능 및 스킨의 총 개수",
+	"version-compare-unique-extension-count-label": "이 위키에 있는 확장 기능과 스킨의 개수",
+	"version-compare-same-extension-count-label": "양쪽 위키에 있는 확장 기능과 스킨의 개수",
+	"version-compare-no-version": "버전 없음",
 	"version-compare-no-logo": "로고 없음",
 	"version-compare-url-error": "$1(으)로부터 데이터를 가져오는 중 오류가 발생했습니다.",
 	"version-compare-url-field-help-1": "비교할 첫 번째 위키의 API URL(api.php로 끝남)입니다. 비어있으면 현재의 위키를 사용합니다.",
-	"version-compare-url-field-help-2": "비교 대상이 되는 (api.php로 끝나는) 두 번째 위키의 API URL입니다. 빈 칸으로 두면 현재의 위키를 사용합니다."
+	"version-compare-url-field-help-2": "비교 대상이 되는 (api.php로 끝나는) 두 번째 위키의 API URL입니다. 빈 칸으로 두면 현재의 위키를 사용합니다.",
+	"version-compare-hide-diff-field-label": "서로 다른 확장 기능/스킨 숨기기",
+	"version-compare-hide-match-field-label": "일치하는 확장 기능/스킨 숨기기",
+	"version-compare-ignore-version-field-label": "확장 기능/스킨이 일치하는지 판단할 때 버전 무시"
 }
