@@ -8,5 +8,6 @@
 	"versioncompare": "Versioun Vergläichen",
 	"version-compare-database-label": "Datebank",
 	"version-compare-no-version": "keng Versioun",
-	"version-compare-no-logo": "kee Logo"
+	"version-compare-no-logo": "kee Logo",
+	"version-compare-url-field-label-2": "API-URL #2:"
 }
