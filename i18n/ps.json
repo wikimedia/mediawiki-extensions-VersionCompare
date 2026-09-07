@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"versioncompare": "بلبڼه پرتله‌کول",
+	"version-compare-desc": "د دوه ويکي‌گانو ترمنځ د ارې برخې او شاتاړو بل‌بڼو ترمنځ پرتله کول وښاياست",
+	"version-compare-database-label": "اومتوک‌اډانه",
+	"version-compare-extension-count-label": "د ټولو شاتاړو او پوستکو ټولټال شمېر",
+	"version-compare-unique-extension-count-label": "يوازې په دې ويکي کې د شاتاړو او پوستکو شمېر",
+	"version-compare-same-extension-count-label": "په دواوړو ويکي‌گانو کې د شاتاړو او پوستکو شمېر",
+	"version-compare-no-version": "هېڅ بل‌بڼه نشته",
+	"version-compare-no-logo": "هېڅ نښان نشته",
+	"version-compare-url-error": "د $1 څخه د اومتوکو ترلاسه‌کولو کې تېروتنه.",
+	"version-compare-url-field-label-1": "د کاريال‌مخبڼې‌بهير وېبتړ #1:",
+	"version-compare-url-field-help-1": "د کاريال‌مخبڼې‌بهير وېبتړ (په api.php پای ته رسېږي) چې پرتلنه يې کېږي. که تش پاتې شي؛ نو اوسنی ويکي به وکاروي.",
+	"version-compare-url-field-label-2": "د کاريال‌مخبڼې بهير وېبتړ #2:",
+	"version-compare-url-field-help-2": "د پرتلنې لپاره د دوهم ويکي د کاريال‌مخبڼې‌بهير وېبتړ (په api.php پای ته رسېږي). که تش پاتې شي؛ نو اوسنی ويکي به وکاروي.",
+	"version-compare-hide-diff-field-label": "توپير لرونکي شاتاړي/پوستکي پټول",
+	"version-compare-hide-match-field-label": "ورته شاتاړي/پوستکي پټول",
+	"version-compare-ignore-version-field-label": "کله چې پرېکړه وکړئ چې ايا شاتاړی/پوستکی سره سمون لري؛ نو بل‌بڼه له پامه وغورځوئ"
+}
